@@ -11,7 +11,6 @@ import com.devfreitag.orderservice.domain.repository.ClienteRepository;
 
 @RestController
 public class ClienteController {
-
 	
 	@Autowired
 	private ClienteRepository clienteRepository;
