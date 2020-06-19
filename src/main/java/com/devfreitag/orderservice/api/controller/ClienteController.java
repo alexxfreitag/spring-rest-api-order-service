@@ -3,6 +3,8 @@ package com.devfreitag.orderservice.api.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,12 +46,12 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente create(@RequestBody Cliente cliente) {
+	public Cliente create(@Valid @RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 	
 	@PutMapping("/{clienteId}")
-	public ResponseEntity<Cliente> update(@PathVariable Long clienteId,
+	public ResponseEntity<Cliente> update(@Valid @PathVariable Long clienteId,
 			@RequestBody Cliente cliente) {
 		
 		if (!clienteRepository.existsById(clienteId)) {
